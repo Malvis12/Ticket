@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-obsidian: #070709;
+  --bg-obsidian-card: #0F0F13;
+  --bg-surface: #141419;
+  --bg-surface-elevated: #1B1B22;
+  --bg-surface-gold: #1A150B;
+  --gold-primary: #D4AF37;
+  --gold-light: #F3E5AB;
+  --gold-muted: #C5A059;
+  --gold-dark: #8C7026;
+  --text-ivory: #F5F2EB;
+  --text-white: #FFFFFF;
+  --text-muted: #9CA3AF;
+  --text-dim: #6B7280;
+  --border-gold: rgba(212, 175, 55, 0.25);
+  --border-gold-strong: rgba(212, 175, 55, 0.6);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --status-valid: #10B981;
+  --status-warn: #F59E0B;
+  --status-danger: #EF4444;
+}
+
+/* Custom Base Rules */
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--text-ivory);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.font-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Luxury Card & Shimmer Utilities */
+.card-luxury {
+  background: linear-gradient(180deg, rgba(20, 20, 25, 0.95) 0%, rgba(12, 12, 16, 0.98) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-luxury:hover {
+  border-color: var(--border-gold-strong);
+  box-shadow: 0 15px 35px -5px rgba(212, 175, 55, 0.12);
+  transform: translateY(-2px);
+}
+
+.card-gold-accent {
+  background: linear-gradient(180deg, rgba(26, 21, 11, 0.95) 0%, rgba(15, 12, 6, 0.98) 100%);
+  border: 1px solid var(--gold-primary);
+  border-radius: 1rem;
+  box-shadow: 0 12px 35px -5px rgba(212, 175, 55, 0.2);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA820A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+  color: #070709;
+}
+
+.gold-gradient-bg:hover {
+  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 100%);
+}
+
+.gold-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(212, 175, 55, 0.15) 50%,
+    transparent 70%
+  );
+  transform: rotate(30deg);
+  animation: shimmer 6s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  20% { transform: translateX(100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* Luxury Perforated Ticket Pass Styling */
+.ticket-pass {
+  background: #0B0B0E;
+  border: 1px solid var(--gold-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-pass::before,
+.ticket-pass::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background-color: var(--bg-obsidian);
+  border-radius: 50%;
+  top: 68%;
+  z-index: 10;
+}
+
+.ticket-pass::before {
+  left: -14px;
+  border-right: 1px solid var(--gold-primary);
+}
+
+.ticket-pass::after {
+  right: -14px;
+  border-left: 1px solid var(--gold-primary);
+}
+
+.ticket-notch-divider {
+  border-top: 2px dashed rgba(212, 175, 55, 0.35);
+  position: relative;
+}
+
+/* Animations */
+.view-enter {
+  animation: viewFadeIn 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes viewFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070709;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-muted);
+}

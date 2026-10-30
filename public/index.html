@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fashion Social — Premium Event Marketplace</title>
+  
+  <!-- Meta & OpenGraph -->
+  <meta name="description" content="The Fashion Social — Style Meets Laughter. Benin City's premier luxury event ticketing and multi-tenant marketplace.">
+  <meta property="og:title" content="The Fashion Social & Marketplace">
+  <meta property="og:description" content="High Runway Couture meets Stand-Up Comedy in Benin City, Edo State.">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: {
+              DEFAULT: '#070709',
+              card: '#0F0F13',
+              surface: '#141419',
+              elevated: '#1B1B22'
+            },
+            gold: {
+              primary: '#D4AF37',
+              light: '#F3E5AB',
+              muted: '#C5A059',
+              dark: '#8C7026'
+            },
+            ivory: {
+              DEFAULT: '#F5F2EB',
+              muted: '#E0DDD5'
+            }
+          },
+          fontFamily: {
+            editorial: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Luxury Theme Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Official QR Code Generator Library -->
+  <script src="/js/utils/qrcode.min.js"></script>
+
+  <!-- Official Supabase Client JS (v2 CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Paystack Inline Popup JS -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body class="bg-[#070709] text-[#F5F2EB] selection:bg-[#D4AF37] selection:text-[#070709] flex flex-col min-h-screen">
+
+  <!-- Mount Point for Sticky Editorial Navbar -->
+  <div id="nav-root"></div>
+
+  <!-- Main Zero-Reload Dynamic SPA Mount Shell -->
+  <main id="app" class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 view-enter">
+    <!-- Initial Loading Skeleton (Fast FCP) -->
+    <div class="space-y-8 animate-pulse pt-8">
+      <div class="h-64 sm:h-96 bg-[#141419] rounded-3xl border border-white/5"></div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="h-80 bg-[#141419] rounded-2xl"></div>
+        <div class="h-80 bg-[#141419] rounded-2xl"></div>
+        <div class="h-80 bg-[#141419] rounded-2xl"></div>
+        <div class="h-80 bg-[#141419] rounded-2xl"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer with NDPA Compliance Notice & Platform Attributions -->
+  <footer class="mt-auto border-t border-[#D4AF37]/20 bg-[#070709] py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-[#1A150B] border border-[#D4AF37] flex items-center justify-center font-editorial font-bold text-[#F3E5AB]">
+          TFS
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-[#F5F2EB]">The Fashion Social Marketplace &copy; 2026</p>
+          <p class="text-xs text-zinc-400">Organized by NIYASA • Benin City, Edo State, Nigeria</p>
+        </div>
+      </div>
+
+      <!-- Compliance & Policy Links -->
+      <div class="flex flex-wrap items-center gap-5 text-xs text-zinc-400 font-mono">
+        <button id="footer-btn-privacy" class="text-emerald-400/90 hover:text-emerald-300 flex items-center gap-1.5 transition-colors">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          NDPA Privacy Policy
+        </button>
+        <button id="footer-btn-terms" class="hover:text-[#F3E5AB] transition-colors">Terms of Service</button>
+        <button id="footer-btn-refund" class="hover:text-[#F3E5AB] transition-colors">Refund Policy</button>
+        <button id="footer-btn-faq" class="hover:text-[#F3E5AB] transition-colors">FAQ & Support</button>
+        <a href="#/event/the-fashion-social" class="hover:text-[#F3E5AB] transition-colors">Flagship Event</a>
+        <a href="#/create-event" class="hover:text-[#F3E5AB] transition-colors">Host With Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Bootstrap (ES Module) -->
+  <script type="module" src="/js/router.js"></script>
+</body>
+</html>
